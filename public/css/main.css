@@ -1,0 +1,55 @@
+body {
+    background: lightgray;
+    color: black;
+}
+
+form {
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 1em;
+    background-color: lightcyan;
+    border-radius: 1.5em;
+    display: flex;
+    justify-content: center;
+    margin: 0.2em;
+}
+
+nav a:hover {
+    color: lightcyan;
+    background-color: black;
+}
+
+nav {
+    text-align: center;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.myName {
+    text-align: center;
+}
+
+#assignment {
+    text-align: center;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    border-spacing: 0;
+}
+
+th, tr{
+    border: 2px solid lightcyan;
+    width: 1em;
+    border-collapse: collapse;
+}
+
+td, th {
+    width: 4em;
+}
