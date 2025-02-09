@@ -7,6 +7,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
     "mime": "^2.6.0"
   },
   "engines": {
