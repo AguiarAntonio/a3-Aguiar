@@ -15,7 +15,7 @@ const submit = async function( event ) {
 
     console.log(data)
 
-    await fetch("/server.js", {
+    await fetch("/click-handler", {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

@@ -1,86 +1,21 @@
-const http = require( "node:http" ),
-    fs   = require( "node:fs" ),
-    // IMPORTANT: you must run `npm install` in the directory for this assignment
-    // to install the mime library if you're testing this on your local machine.
-    // However, Glitch will install it automatically by looking in your package.json
-    // file.
-    mime = require( "mime" ),
-    dir  = "public/",
-    port = 3000
+const express = require('express')
+const formidable = require('express-formidable')
+const app = express();
+const port = 3000;
 
-const newArr = []
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-const appdata = [
-    { "model": "toyota", "year": 1999, "mpg": 23 },
-    { "model": "honda", "year": 2004, "mpg": 30 },
-    { "model": "ford", "year": 1987, "mpg": 14}
-]
+let data = [];
 
-// let fullURL = ""
-const server = http.createServer( function( request,response ) {
-    if( request.method === "GET" ) {
-        handleGet( request, response )
-    }else if( request.method === "POST" ){
-        console.log( request.body );
-        handlePost( request, response )
-    }
-
-    // The following shows the requests being sent to the server
-    // fullURL = `http://${request.headers.host}${request.url}`
-    // console.log( fullURL );
+app.post("/click-handler", (req, res) => {
+    const recievedData = req.body;
+    console.log(recievedData);
+    res.send('Form data recieved')
 })
 
-const handleGet = function( request, response ) {
-    const filename = dir + request.url.slice( 1 )
-
-    if( request.url === "/" ) {
-        sendFile( response, "public/index.html" )
-    }else{
-        sendFile( response, filename )
-    }
-}
-
-const handlePost = function( request, response ) {
-    let dataString = ""
-
-    request.on( "data", function( data ) {
-        dataString += data
-    })
-
-    request.on( "end", function() {
-        console.log( JSON.parse( dataString ) )
-
-        newArr.push( dataString )
-        // ... do something with the data here and at least generate the derived data
-
-        response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
-        response.end( JSON.stringify(newArr) )
-    })
-}
-
-const sendFile = function( response, filename ) {
-    const type = mime.getType( filename )
-
-    fs.readFile( filename, function( err, content ) {
-
-        // if the error = null, then we've loaded the file successfully
-        if( err === null ) {
-
-            // status code: https://httpstatuses.com
-            response.writeHeader( 200, { "Content-Type": type })
-            response.end( content )
-
-        } else {
-
-            // file not found, error code 404
-            response.writeHeader( 404 )
-            response.end( "404 Error: File Not Found" )
-
-        }
-    })
-}
-
-// process.env.PORT references the port that Glitch uses
-// the following line will either use the Glitch port or one that we provided
-server.listen( process.env.PORT || port )
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
+})
 
