@@ -3,14 +3,17 @@ const formidable = require('express-formidable')
 //const passport = require("passport");
 const app = express();
 const port = 3000;
-const {MongoClient} = require('mongodb');
 const cors = require('cors')
 const {response} = require("express")
 const bodyParser = require('body-parser')
 const {list} = require("@material-tailwind/react");
 const url = "mongodb+srv://AguiarAntonio:V%5ErT%3Fyaq9K-8%282%26%2B@cs4241.fntre.mongodb.net/?retryWrites=true&w=majority&appName=CS4241"
 
-const client = new MongoClient(url);
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://AguiarAntonio:V%5ErT%3Fyaq9K-8%282%26%2B@cs4241.fntre.mongodb.net/?retryWrites=true&w=majority&appName=CS4241";
+
+
+const client = new MongoClient(uri);
 const db = client.db("cs4241-user")
 const collection = db.collection("a3")
 
