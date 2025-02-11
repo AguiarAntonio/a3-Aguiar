@@ -9,4 +9,4 @@ I added tailwind to one of the name to show that I know how to use tailwind
 
 
 - Got 100% on google lighthouse, check images
-- Put this on vercel
+- Used bodyparser middleware, along with atempted cors and formidable
