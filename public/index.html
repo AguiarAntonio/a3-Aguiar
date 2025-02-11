@@ -5,28 +5,50 @@
     <meta charset="utf-8">
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Page with forms">
     <!-- get rid of favicon error -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
-<h1 class="myName">AJ Aguiar</h1>
+<nav>
+    <a href="login.html">Login</a>
+    <a href="index.html">Form</a>
+    <a href="data.html">Data</a>
+</nav>
+<h1 class="myName text-center text-blue-700">AJ Aguiar</h1>
 <h1 id="assignment">CS4241 Assignment 3</h1>
 <form id="theForm">
     <label for="favGame">Favorite Game: </label>
-    <input type="text" id="favGame" name="favGame" placeholder="type fave game here">
+    <input type="text" id="favGame" name="favGame" placeholder="type fave game here"/>
     <br/>
     <label for="genre">Genre: </label>
-    <input type="text" id="genre" name="genre" placeholder="type genre here">
+    <input type="text" id="genre" name="genre" placeholder="type genre here"/>
+    <br/>
+    <label for="description">Description: </label>
+    <textarea id="description" name="description" placeholder="description here"></textarea>
     <br/>
     <button id="submitButton">submit</button>
+    <br/>
+    <hr/>
+    <label for="gameToDel">Delete Game: </label>
+    <input type="text" id="gameToDel" name="gameToDel" placeholder="game to delete"/>
+    <br/>
+    <button id="deleteButton">delete</button>
+    <hr/>
+    <label for="oldGame">Old Game: </label>
+    <input type="text" id="oldGame" name="oldGame" placeholder="type game to change"/>
+    <br/>
+    <label for="modifyfavGame">Changed Favorite Game: </label>
+    <input type="text" id="modifyfavGame" name="modifyfavGame" placeholder="type new fave game here"/>
+    <br/>
+    <label for="modifyGenre">New Genre: </label>
+    <input type="text" id="modifyGenre" name="modifyGenre" placeholder="type new genre here"/>
+    <br/>
+    <label for="modifyDescription">New Description: </label>
+    <textarea id="modifyDescription" name="modifyDescription" placeholder="new description here"></textarea>
+    <br/>
+    <button id="modifyButton">modify</button>
 </form>
-<br/>
-<table id="myTable">
-    <tr>
-        <th>Game</th>
-        <th>Genre</th>
-    </tr>
-</table>
 </body>
 </html>

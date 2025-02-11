@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 body {
     background: lightgray;
     color: black;
@@ -15,6 +17,7 @@ nav a {
     display: flex;
     justify-content: center;
     margin: 0.2em;
+    color: black;
 }
 
 nav a:hover {
@@ -52,4 +55,5 @@ th, tr{
 
 td, th {
     width: 4em;
+    padding: 0.5em;
 }
